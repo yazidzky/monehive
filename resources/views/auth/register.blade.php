@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up | MoneHive</title>
+    @vite('resources/css/app.css')
+</head>
+<body class="font-[Poppins] bg-white">
+
+<div class="min-h-screen grid grid-cols-2">
+
+    {{-- LEFT CONTAINER --}}
+    <div class="flex flex-col justify-center px-20">
+
+        {{-- LOGO --}}
+        <div class="flex items-center mb-10">
+            <img src="{{ asset('images/logo-m.png') }}"
+                 class="w-20 h-20 -mr-2"
+                 alt="MoneHive Logo">
+            <span class="text-3xl font-semibold text-yellow-500">
+                oneHive
+            </span>
+        </div>
+
+        {{-- TITLE --}}
+        <h1 class="text-4xl font-normal text-gray-900 mb-2">
+            Welcome to MoneHive
+        </h1>
+        <p class="text-gray-500 mb-10">
+            Create your account to get started
+        </p>
+
+        {{-- FORM --}}
+        <form method="POST" action="{{ route('register') }}" class="space-y-6 w-[420px]">
+            @csrf
+
+            {{-- EMAIL --}}
+            <div class="relative">
+                <span class="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500">
+                    👤
+                </span>
+                <input type="email" name="email" autocomplete="email"
+                       placeholder="Email address"
+                       class="w-full pl-14 pr-5 py-4 rounded-full bg-yellow-200/70
+                              placeholder-gray-600 focus:outline-none">
+            </div>
+
+            {{-- PASSWORD --}}
+            <div class="relative">
+                <span class="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500">
+                    🔒
+                </span>
+                <input type="password" name="password" autocomplete="new-password"
+                       placeholder="Password"
+                       class="w-full pl-14 pr-14 py-4 rounded-full bg-yellow-200/70
+                              placeholder-gray-600 focus:outline-none">
+                <span class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer">
+                    👁
+                </span>
+            </div>
+
+            {{-- ACTION ROW --}}
+            <div class="flex items-center justify-between text-sm text-gray-500">
+                <span>Already have an account? <a href="/login" class="text-yellow-500">Log in</a></span>
+                <a href="{{ route('password.request') }}" class="hover:underline">Forgot Password?</a>
+            </div>
+
+            {{-- BUTTON --}}
+            <div class="flex items-center gap-6 mt-6">
+                <button type="submit"
+                        class="bg-yellow-400 hover:bg-yellow-500
+                               text-white font-semibold
+                               px-20 py-4 rounded-full">
+                    Sign Up!
+                </button>
+
+                <a href="/login" class="text-gray-800 text-lg">
+                    Login
+                </a>
+            </div>
+
+        </form>
+    </div>
+
+    {{-- RIGHT CONTAINER --}}
+    <div class="relative overflow-hidden">
+
+        {{-- YELLOW BACKGROUND SHAPE --}}
+        <img src="{{ asset('images/background-login.png') }}"
+             class="absolute inset-0 w-full h-full object-cover"
+             alt="Background">
+
+        {{-- ILLUSTRATION --}}
+        <img src="{{ asset('images/login-illustration.png') }}"
+             class="absolute right-10 top-1/2 -translate-y-1/2 w-[420px]"
+             alt="Illustration">
+    </div>
+
+</div>
+
+
+</body>
+</html>

@@ -3,6 +3,8 @@
 cd /var/www/html
 
 # Run migrations (force for production)
+echo "Running migrations..."
+echo "DB_HOST: $DB_HOST"
 php artisan migrate --force
 
 # Cache configuration

@@ -91,10 +91,15 @@ Jika anda ingin menaruh semuanya (App + Database) di Railway.
 *   Cek **Logs** di dashboard Vercel -> Functions.
 *   Biasanya karena salah password database atau `APP_KEY` belum diset.
 
-**Isu Tampilan Rusak / CSS Tidak Muncul (Railway):**
-*   **Penyebab 1**: Asset dimuat via HTTP sedangkan web via HTTPS (Mixed Content).
-    *   **Solusi**: Di Railway Variables, tambahkan `ASSET_URL` dengan nilai `https://nama-project-anda-production.railway.app` (sesuaikan dengan domain Railway Anda).
-*   **Penyebab 2**: Proses Build (`npm run build`) tidak berjalan.
+    *   **Solusi Benar**: Pastikan variable database (`DB_HOST`, `DB_PORT`, `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE`) di Railway/Vercel sudah BENAR dan sesuai dengan credential yang diberikan Railway. Pastikan port-nya benar (seringkali bukan 3306).
+
+**Isu Tampilan Rusak / CSS Tidak Muncul (Mixed Content):**
+*   **Penyebab**: Web diakses via HTTPS tapi memanggil asset (CSS/JS) via HTTP. Link asset diblokir browser.
+*   **Solusi**:
+    1.  Di Railway Variables, set `ASSET_URL` ke `https://nama-project-anda.up.railway.app` (**PASTIKAN PAKE HTTPS**).
+    2.  Jika `ASSET_URL` sudah ada tapi salah, hapus atau perbaiki.
+
+**Isu Build Gagal (Nixpacks):**
     *   **Solusi**: Di Railway Variables, tambahkan `NIXPACKS_BUILD_CMD` dengan isi:
         `composer install && npm install && npm run build && php artisan view:cache`
     *   Lalu redeploy.

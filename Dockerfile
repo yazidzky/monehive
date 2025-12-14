@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     nginx \
-    libzip-dev \
+    libzip-dev
 
 
 # Clear cache

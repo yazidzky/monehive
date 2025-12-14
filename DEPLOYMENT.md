@@ -51,7 +51,12 @@ Setup ini menggunakan Vercel untuk hosting aplikasi Laravel (cepat & gratis) dan
     *   `DB_DATABASE`: (Nilai `MYSQLDATABASE` dari Railway)
     *   `DB_USERNAME`: (Nilai `MYSQLUSER` dari Railway)
     *   `DB_PASSWORD`: (Nilai `MYSQLPASSWORD` dari Railway)
-5.  Klik **"Deploy"**.
+5.  **PENTING - "Output Directory" Setting**:
+    *   Karena Vercel mendeteksi `vite.config.js`, dia mungkin mengira ini project React/Vue dan mencari folder `dist`.
+    *   Di setting project Vercel, masuk ke **Settings** -> **Build & Development Settings**.
+    *   Pada bagian **Output Directory**, aktifkan **Override** dan isi dengan `public` (atau biarkan kosong jika Anda ingin mengatur via route, tapi `public` biasanya paling aman untuk menghindari error ini). *Rekomendasi: Override dan set ke `public`*.
+    *   Jika masih error, coba Override dan biarkan **kosong**.
+6.  Klik **"Deploy"**.
 
 ### Langkah 3: Migrasi Database
 Setelah deploy sukses, database masih kosong. Anda perlu menjalankan migrasi.

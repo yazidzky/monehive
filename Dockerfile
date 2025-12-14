@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     nginx \
     libzip-dev \
-    gettext-base
+
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -44,7 +44,7 @@ COPY --from=frontend /app/public/build/manifest.json /var/www/html/public/build/
 RUN composer install --no-dev --optimize-autoloader
 
 # Set permissions
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chown -R www-data:www-data /var/www/html
 
 # Copy Nginx config
 COPY docker/nginx/default.conf /etc/nginx/sites-available/default

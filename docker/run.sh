@@ -14,7 +14,9 @@ php artisan view:cache
 export PORT=${PORT:-80}
 
 # Inject PORT environment variable into Nginx config
-envsubst '${PORT}' < /etc/nginx/sites-available/default > /etc/nginx/sites-available/default.tmp && mv /etc/nginx/sites-available/default.tmp /etc/nginx/sites-available/default
+# Inject PORT environment variable into Nginx config
+echo "Using PORT: $PORT"
+sed -i "s/\${PORT}/${PORT}/g" /etc/nginx/sites-available/default
 
 # Start PHP-FPM in background
 php-fpm -D

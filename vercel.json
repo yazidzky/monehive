@@ -4,7 +4,7 @@
   "framework": null,
   "functions": {
     "api/index.php": {
-      "runtime": "@vercel/php"
+      "runtime": "@vercel/php@3.4.0"
     }
   },
   "routes": [

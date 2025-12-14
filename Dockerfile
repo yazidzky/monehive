@@ -51,7 +51,6 @@ COPY docker/nginx/default.conf /etc/nginx/sites-available/default
 
 # Copy PHP-FPM config
 COPY docker/php/www.conf /usr/local/etc/php-fpm.d/zz-docker.conf
-RUN mkdir -p /var/run/php && chown www-data:www-data /var/run/php
 
 # Copy startup script
 COPY docker/run.sh /usr/local/bin/run.sh

@@ -49,6 +49,9 @@ RUN chown -R www-data:www-data /var/www/html
 # Copy Nginx config
 COPY docker/nginx/default.conf /etc/nginx/sites-available/default
 
+# Copy PHP-FPM pool config to ensure it listens on 127.0.0.1:9000
+COPY docker/php/www.conf /usr/local/etc/php-fpm.d/www.conf
+
 # Copy startup script
 COPY docker/run.sh /usr/local/bin/run.sh
 RUN chmod +x /usr/local/bin/run.sh

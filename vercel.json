@@ -1,37 +1,29 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "version": 2,
-  "framework": null,
-  "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php@0.7.4",
-      "includeFiles": [
-        "vendor/**",
-        "bootstrap/**",
-        "config/**",
-        "resources/views/**",
-        "public/**",
-        "storage/framework/**"
-      ]
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "version": 2,
+    "framework": null,
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.7.4",
+            "includeFiles": "{vendor/**,bootstrap/**,config/**,resources/views/**,public/**,storage/framework/**}"
+        }
+    },
+    "routes": [
+        { "src": "/build/(.*)", "dest": "/public/build/$1" },
+        { "src": "/images/(.*)", "dest": "/public/images/$1" },
+        { "src": "/favicon.ico", "dest": "/public/favicon.ico" },
+        { "src": "/robots.txt", "dest": "/public/robots.txt" },
+        { "src": "/manifest.json", "dest": "/public/manifest.json" },
+        { "src": "/service-worker.js", "dest": "/public/service-worker.js" },
+        { "src": "/(.*)", "dest": "/api/index.php" }
+    ],
+    "buildCommand": "npm run build",
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "false",
+        "LOG_CHANNEL": "stderr",
+        "CACHE_DRIVER": "array",
+        "SESSION_DRIVER": "cookie",
+        "VIEW_COMPILED_PATH": "/tmp"
     }
-  },
-  "routes": [
-    { "src": "/build/(.*)", "dest": "/public/build/$1" },
-    { "src": "/images/(.*)", "dest": "/public/images/$1" },
-    { "src": "/favicon.ico", "dest": "/public/favicon.ico" },
-    { "src": "/robots.txt", "dest": "/public/robots.txt" },
-    { "src": "/manifest.json", "dest": "/public/manifest.json" },
-    { "src": "/service-worker.js", "dest": "/public/service-worker.js" },
-    { "src": "/(.*)", "dest": "/api/index.php" }
-  ],
-  "buildCommand": "npm run build"
-  ,
-  "env": {
-    "APP_ENV": "production",
-    "APP_DEBUG": "false",
-    "LOG_CHANNEL": "stderr",
-    "CACHE_DRIVER": "array",
-    "SESSION_DRIVER": "cookie",
-    "VIEW_COMPILED_PATH": "/tmp"
-  }
 }

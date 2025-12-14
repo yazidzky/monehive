@@ -99,6 +99,22 @@ Jika anda ingin menaruh semuanya (App + Database) di Railway.
         `composer install && npm install && npm run build && php artisan view:cache`
     *   Lalu redeploy.
 
+**SOLUSI PAMUNGKAS (Jika Tampilan Masih Rusak): Manual Build**
+Jika cara di atas gagal, kita bisa mem-build asset di laptop Anda lalu upload hasilnya.
+1.  Di laptop Anda, jalankan:
+    ```bash
+    npm install
+    npm run build
+    ```
+2.  Buka `.gitignore` dan hapus baris `/public/build` (Sudah saya hapus).
+3.  Simpan dan Push hasilnya:
+    ```bash
+    git add .
+    git commit -m "Force commit built assets"
+    git push origin main
+    ```
+4.  Cara ini mem-bypass proses build di Railway yang sering gagal. Pastikan `ASSET_URL` tetap ada di Railway Variables.
+
 **Jika Aset (CSS/JS) tidak muncul:**
 *   Pastikan `ASSET_URL` tidak di-set sembarangan di env vars.
 *   Pastikan `npm run build` jalan saat deployment (Vercel otomatis menjalankan ini jika terdeteksi `package.json`).

@@ -20,6 +20,11 @@ sed -i "s/\${PORT}/${PORT}/g" /etc/nginx/sites-available/default
 
 # Start PHP-FPM in background
 php-fpm -D
+status=$?
+if [ $status -ne 0 ]; then
+  echo "Failed to start php-fpm: $status"
+  exit $status
+fi
 
 # Start Nginx in foreground
 nginx -g "daemon off;"

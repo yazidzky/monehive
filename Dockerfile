@@ -47,10 +47,8 @@ RUN composer install --no-dev --optimize-autoloader
 RUN chown -R www-data:www-data /var/www/html
 
 # Copy Nginx config
-COPY docker/nginx/default.conf /etc/nginx/sites-available/default
-
-# Copy PHP-FPM pool config to ensure it listens on 127.0.0.1:9000
-COPY docker/php/www.conf /usr/local/etc/php-fpm.d/www.conf
+COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+RUN rm -rf /etc/nginx/sites-enabled/default && rm -rf /etc/nginx/sites-available/default
 
 # Copy startup script
 COPY docker/run.sh /usr/local/bin/run.sh

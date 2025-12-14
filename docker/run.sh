@@ -16,7 +16,7 @@ export PORT=${PORT:-80}
 # Inject PORT environment variable into Nginx config
 # Inject PORT environment variable into Nginx config
 echo "Using PORT: $PORT"
-sed -i "s/\${PORT}/${PORT}/g" /etc/nginx/sites-available/default
+sed -i "s/\${PORT}/${PORT}/g" /etc/nginx/conf.d/default.conf
 
 # Start PHP-FPM in background
 php-fpm -D

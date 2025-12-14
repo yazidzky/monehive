@@ -4,7 +4,15 @@
   "framework": null,
   "functions": {
     "api/index.php": {
-      "runtime": "vercel-php@0.7.4"
+      "runtime": "vercel-php@0.7.4",
+      "includeFiles": [
+        "vendor/**",
+        "bootstrap/**",
+        "config/**",
+        "resources/views/**",
+        "public/**",
+        "storage/framework/**"
+      ]
     }
   },
   "routes": [
@@ -16,6 +24,14 @@
     { "src": "/service-worker.js", "dest": "/public/service-worker.js" },
     { "src": "/(.*)", "dest": "/api/index.php" }
   ],
-  "installCommand": "composer install --no-dev --prefer-dist --optimize-autoloader && npm ci",
-  "buildCommand": "php artisan config:cache && php artisan route:cache && php artisan view:cache && npm run build"
+  "buildCommand": "npm run build"
+  ,
+  "env": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "false",
+    "LOG_CHANNEL": "stderr",
+    "CACHE_DRIVER": "array",
+    "SESSION_DRIVER": "cookie",
+    "VIEW_COMPILED_PATH": "/tmp"
+  }
 }

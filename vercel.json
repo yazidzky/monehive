@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "functions": {
+    "api/index.php": {
+      "runtime": "@vercel/php@3.4.0"
+    }
+  },
+  "routes": [
+    {
+      "src": "^/(build/.*|images/.*|favicon.ico|robots.txt|manifest.json|service-worker.js)$",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "api/index.php"
+    }
+  ],
+  "installCommand": "composer install --no-dev --prefer-dist --optimize-autoloader && npm ci",
+  "buildCommand": "php artisan config:cache && php artisan route:cache && php artisan view:cache && npm run build",
+  "ignoreCommand": "echo"
+}

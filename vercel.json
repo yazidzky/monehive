@@ -5,7 +5,14 @@
     "functions": {
         "api/index.php": {
             "runtime": "vercel-php@0.7.4",
-            "includeFiles": "{vendor/**,bootstrap/**,config/**,resources/views/**,public/**,storage/framework/**}"
+            "includeFiles": [
+                "vendor/**",
+                "bootstrap/**",
+                "config/**",
+                "resources/views/**",
+                "public/**",
+                "storage/framework/**"
+            ]
         }
     },
     "routes": [
@@ -17,6 +24,7 @@
         { "src": "/service-worker.js", "dest": "/public/service-worker.js" },
         { "src": "/(.*)", "dest": "/api/index.php" }
     ],
+    "installCommand": "npm ci",
     "buildCommand": "npm run build",
     "env": {
         "APP_ENV": "production",

@@ -10,6 +10,9 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
+# Inject PORT environment variable into Nginx config
+envsubst '${PORT}' < /etc/nginx/sites-available/default > /etc/nginx/sites-available/default.tmp && mv /etc/nginx/sites-available/default.tmp /etc/nginx/sites-available/default
+
 # Start PHP-FPM in background
 php-fpm -D
 

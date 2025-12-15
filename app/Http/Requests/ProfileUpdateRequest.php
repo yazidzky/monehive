@@ -9,7 +9,9 @@ use Illuminate\Validation\Rule;
 class ProfileUpdateRequest extends FormRequest
 {
     /**
-     * Get the validation rules that apply to the request.
+     * Request Validasi Update Profil
+     * Mengatur aturan validasi saat pengguna mengubah nama atau email.
+     * Termasuk validasi unik untuk email, dengan pengecualian untuk ID pengguna saat ini.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */

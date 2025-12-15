@@ -11,15 +11,17 @@ use Illuminate\Validation\Rules\Password;
 class PasswordController extends Controller
 {
     /**
-     * Update the user's password.
+     * Update password user (Fitur Ganti Password).
      */
     public function update(Request $request): RedirectResponse
     {
+        // Validasi password saat ini dan password baru
         $validated = $request->validateWithBag('updatePassword', [
             'current_password' => ['required', 'current_password'],
             'password' => ['required', Password::defaults(), 'confirmed'],
         ]);
 
+        // Update password di database dengan hash baru
         $request->user()->update([
             'password' => Hash::make($validated['password']),
         ]);

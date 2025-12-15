@@ -1,3 +1,9 @@
+{{--
+Komponen Pesan Error Input
+Menampilkan daftar pesan error validasi untuk sebuah field.
+Props:
+- messages: Array pesan error yang akan ditampilkan.
+--}}
 @props(['messages'])
 
 @if ($messages)

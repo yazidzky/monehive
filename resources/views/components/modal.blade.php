@@ -1,3 +1,11 @@
+{{--
+    Komponen Modal Dialog
+    Modal popup yang menggunakan Alpine.js untuk kontrol visibilitas dan manajemen fokus.
+    Props:
+    - name: Nama unik untuk modal (digunakan untuk event trigger).
+    - show: Status awal visibilitas (default: false).
+    - maxWidth: Lebar maksimal modal (default: '2xl').
+    --}}
 @props([
     'name',
     'show' => false,
@@ -5,6 +13,7 @@
 ])
 
 @php
+// Konfigurasi lebar maksimal modal berdasarkan prop
 $maxWidth = [
     'sm' => 'sm:max-w-sm',
     'md' => 'sm:max-w-md',

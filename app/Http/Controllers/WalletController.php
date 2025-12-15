@@ -8,6 +8,9 @@ use Illuminate\View\View;
 
 class WalletController extends Controller
 {
+    /**
+     * Menampilkan daftar dompet digital/tunai user.
+     */
     public function index(): View
     {
         $user = Auth::user();
@@ -20,15 +23,21 @@ class WalletController extends Controller
         ]);
     }
 
+    /**
+     * Menyimpan dompet baru.
+     */
     public function store(\Illuminate\Http\Request $request): \Illuminate\Http\RedirectResponse
     {
         $user = Auth::user();
+
+        // Validasi input
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:100'],
             'balance' => ['required', 'numeric', 'min:0'],
             'theme' => ['nullable', 'string'],
         ]);
 
+        // Insert ke Database
         Wallet::create([
             'user_id' => $user->id,
             'name' => $validated['name'],

@@ -1,3 +1,15 @@
+/*
+|--------------------------------------------------------------------------
+| File CSS Utama
+|--------------------------------------------------------------------------
+|
+| File ini mendefinisikan style global untuk aplikasi.
+| 1. Mengimpor font 'Poppins' dari Google Fonts.
+| 2. Menginisialisasi framework CSS Tailwind.
+| 3. Mengatur font default aplikasi.
+|
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 @tailwind base;

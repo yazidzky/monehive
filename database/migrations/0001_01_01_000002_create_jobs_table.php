@@ -4,13 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
-     * Run the migrations.
+     * Menjalankan migration.
+     *
+     * Membuat tabel 'jobs', 'job_batches', dan 'failed_jobs' untuk pengelolaan antrian pekerjaan.
      */
     public function up(): void
     {
+        // Membuat tabel 'jobs' untuk menyimpan pekerjaan yang antri.
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->string('queue')->index();
@@ -21,6 +23,7 @@ return new class extends Migration
             $table->unsignedInteger('created_at');
         });
 
+        // Membuat tabel 'job_batches' untuk mengelola batch pekerjaan.
         Schema::create('job_batches', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('name');
@@ -34,6 +37,7 @@ return new class extends Migration
             $table->integer('finished_at')->nullable();
         });
 
+        // Membuat tabel 'failed_jobs' untuk menyimpan pekerjaan yang gagal diproses.
         Schema::create('failed_jobs', function (Blueprint $table) {
             $table->id();
             $table->string('uuid')->unique();
@@ -46,7 +50,9 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Membalikkan migration.
+     *
+     * Menghapus tabel 'jobs', 'job_batches', dan 'failed_jobs'.
      */
     public function down(): void
     {

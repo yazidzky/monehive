@@ -4,29 +4,33 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
-     * Run the migrations.
+     * Menjalankan migration.
+     *
+     * Membuat tabel 'users', 'password_reset_tokens', dan 'sessions'.
      */
     public function up(): void
     {
+        // Membuat tabel 'users' untuk menyimpan data pengguna aplikasi.
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->id(); // Primary key auto-increment
+            $table->string('name'); // Nama pengguna
+            $table->string('email')->unique(); // Email pengguna (unik)
+            $table->timestamp('email_verified_at')->nullable(); // Waktu verifikasi email
+            $table->string('password'); // Password terenkripsi
+            $table->rememberToken(); // Token untuk fitur "Remember Me"
+            $table->timestamps(); // Kolom created_at dan updated_at
         });
 
+        // Membuat tabel 'password_reset_tokens' untuk menyimpan token reset password.
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
 
+        // Membuat tabel 'sessions' untuk menyimpan data sesi pengguna.
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
@@ -38,7 +42,9 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Membalikkan migration.
+     *
+     * Menghapus tabel 'users', 'password_reset_tokens', dan 'sessions'.
      */
     public function down(): void
     {

@@ -1,3 +1,6 @@
+# Konfigurasi Nixpacks (Railway Deployment)
+# Mengatur environment build image server.
+
 [phases.setup]
 nixPkgs = ['php82', 'composer', 'nodejs_20']
 

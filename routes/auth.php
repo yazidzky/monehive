@@ -1,4 +1,9 @@
 <?php
+/**
+ * File Route Autentikasi
+ * Khusus menangani route terkait login, register, reset password, dan verifikasi email.
+ * Dipisahkan dari web.php agar lebih terstruktur.
+ */
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;

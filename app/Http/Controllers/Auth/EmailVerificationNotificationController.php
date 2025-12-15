@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class EmailVerificationNotificationController extends Controller
 {
     /**
-     * Send a new email verification notification.
+     * Mengirim ulang email notifikasi verifikasi.
      */
     public function store(Request $request): RedirectResponse
     {
@@ -17,6 +17,7 @@ class EmailVerificationNotificationController extends Controller
             return redirect()->intended(route('dashboard', absolute: false));
         }
 
+        // Kirim notifikasi
         $request->user()->sendEmailVerificationNotification();
 
         return back()->with('status', 'verification-link-sent');

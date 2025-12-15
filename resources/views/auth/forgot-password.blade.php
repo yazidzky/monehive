@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+{{--
+Halaman Lupa Password
+Form untuk meminta link reset password via email.
+--}}
 <html lang="en">
 
 <head>

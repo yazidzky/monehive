@@ -1,3 +1,9 @@
+{{--
+Komponen Status Sesi Autentikasi
+Menampilkan pesan status sesi (seperti sukses login, logout, atau reset password).
+Props:
+- status: Pesan status yang akan ditampilkan.
+--}}
 @props(['status'])
 
 @if ($status)

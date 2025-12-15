@@ -4,12 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Defaults
+    | Default Otentikasi
     |--------------------------------------------------------------------------
     |
-    | This option defines the default authentication "guard" and password
-    | reset "broker" for your application. You may change these values
-    | as required, but they're a perfect start for most applications.
+    | Opsi ini mendefinisikan default "guard" otentikasi dan "broker" reset password
+    | untuk aplikasi Anda. Anda dapat mengubah nilai-nilai ini
+    | sesuai kebutuhan, tetapi ini adalah awal yang sempurna untuk sebagian besar aplikasi.
     |
     */
 
@@ -20,18 +20,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Guards
+    | Guard Otentikasi
     |--------------------------------------------------------------------------
     |
-    | Next, you may define every authentication guard for your application.
-    | Of course, a great default configuration has been defined for you
-    | which utilizes session storage plus the Eloquent user provider.
+    | Selanjutnya, Anda dapat mendefinisikan setiap guard otentikasi untuk aplikasi Anda.
+    | Tentu saja, konfigurasi default yang bagus telah didefinisikan untuk Anda
+    | yang memanfaatkan penyimpanan sesi ditambah penyedia pengguna Eloquent.
     |
-    | All authentication guards have a user provider, which defines how the
-    | users are actually retrieved out of your database or other storage
-    | system used by the application. Typically, Eloquent is utilized.
+    | Semua guard otentikasi memiliki penyedia pengguna, yang mendefinisikan bagaimana
+    | pengguna sebenarnya diambil dari database Anda atau penyimpanan lain
+    | yang digunakan oleh aplikasi. Biasanya, Eloquent digunakan.
     |
-    | Supported: "session"
+    | Didukung: "session"
     |
     */
 
@@ -44,18 +44,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | User Providers
+    | Penyedia Pengguna (User Providers)
     |--------------------------------------------------------------------------
     |
-    | All authentication guards have a user provider, which defines how the
-    | users are actually retrieved out of your database or other storage
-    | system used by the application. Typically, Eloquent is utilized.
+    | Semua guard otentikasi memiliki penyedia pengguna, yang mendefinisikan bagaimana
+    | pengguna sebenarnya diambil dari database Anda atau penyimpanan lain
+    | yang digunakan oleh aplikasi. Biasanya, Eloquent digunakan.
     |
-    | If you have multiple user tables or models you may configure multiple
-    | providers to represent the model / table. These providers may then
-    | be assigned to any extra authentication guards you have defined.
+    | Jika Anda memiliki beberapa tabel pengguna atau model, Anda dapat mengonfigurasi beberapa
+    | penyedia untuk mewakili model / tabel tersebut. Penyedia ini kemudian dapat
+    | ditugaskan ke guard otentikasi tambahan yang telah Anda tetapkan.
     |
-    | Supported: "database", "eloquent"
+    | Didukung: "database", "eloquent"
     |
     */
 
@@ -73,20 +73,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Resetting Passwords
+    | Mengatur Ulang Password
     |--------------------------------------------------------------------------
     |
-    | These configuration options specify the behavior of Laravel's password
-    | reset functionality, including the table utilized for token storage
-    | and the user provider that is invoked to actually retrieve users.
+    | Opsi konfigurasi ini menentukan perilaku fungsionalitas reset password
+    | Laravel, termasuk tabel yang digunakan untuk penyimpanan token
+    | dan penyedia pengguna yang dipanggil untuk mengambil pengguna sebenarnya.
     |
-    | The expiry time is the number of minutes that each reset token will be
-    | considered valid. This security feature keeps tokens short-lived so
-    | they have less time to be guessed. You may change this as needed.
+    | Waktu kedaluwarsa adalah jumlah menit setiap token reset akan
+    | dianggap valid. Fitur keamanan ini menjaga token berumur pendek sehingga
+    | mereka memiliki lebih sedikit waktu untuk ditebak. Anda dapat mengubah ini sesuai kebutuhan.
     |
-    | The throttle setting is the number of seconds a user must wait before
-    | generating more password reset tokens. This prevents the user from
-    | quickly generating a very large amount of password reset tokens.
+    | Pengaturan throttle adalah jumlah detik yang harus ditunggu pengguna sebelum
+    | menghasilkan lebih banyak token reset password. Ini mencegah pengguna dari
+    | dengan cepat menghasilkan jumlah token reset password yang sangat besar.
     |
     */
 
@@ -101,12 +101,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Password Confirmation Timeout
+    | Batas Waktu Konfirmasi Password
     |--------------------------------------------------------------------------
     |
-    | Here you may define the number of seconds before a password confirmation
-    | window expires and users are asked to re-enter their password via the
-    | confirmation screen. By default, the timeout lasts for three hours.
+    | Di sini Anda dapat menentukan jumlah detik sebelum jendela konfirmasi password
+    | kedaluwarsa dan pengguna diminta untuk memasukkan kembali password mereka melalui
+    | layar konfirmasi. Secara default, batas waktu berlangsung selama tiga jam.
     |
     */
 

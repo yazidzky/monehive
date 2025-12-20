@@ -9,7 +9,9 @@ Menggunakan layout custom split-screen (Logo/Form di kiri, Gambar di kanan).
 <head>
     <meta charset="UTF-8">
     <title>Login | MoneHive</title>
-    @vite('resources/css/app.css')
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="font-[Poppins] bg-white">
@@ -86,6 +88,9 @@ Menggunakan layout custom split-screen (Logo/Form di kiri, Gambar di kanan).
                     <a href="/register" class="text-gray-800 text-lg">
                         Sign Up
                     </a>
+                    <button id="pwaInstallBtn" type="button" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium px-6 py-4 rounded-full hidden">
+                        Install App
+                    </button>
                 </div>
 
             </form>
@@ -105,6 +110,32 @@ Menggunakan layout custom split-screen (Logo/Form di kiri, Gambar di kanan).
 
     </div>
 
+    <script>
+        let deferredPrompt;
+        const installBtn = document.getElementById('pwaInstallBtn');
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            if (installBtn) installBtn.classList.remove('hidden');
+        });
+        installBtn?.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            await deferredPrompt.prompt();
+            deferredPrompt = null;
+            installBtn.classList.add('hidden');
+        });
+        window.addEventListener('appinstalled', () => {
+            deferredPrompt = null;
+            if (installBtn) installBtn.classList.add('hidden');
+        });
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistration().then((reg) => {
+                if (!reg) {
+                    navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

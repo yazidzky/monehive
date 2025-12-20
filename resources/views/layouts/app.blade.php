@@ -12,6 +12,8 @@ Struktur:
 <head>
     <meta charset="UTF-8">
     <title>MoneHive</title>
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
     @vite('resources/css/app.css')
     <style>
         [x-cloak] {

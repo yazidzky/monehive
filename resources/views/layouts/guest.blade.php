@@ -10,6 +10,8 @@ Ciri khas: Tampilan sederhana, terpusat di tengah layar.
     <meta charset="UTF-8">
     <title>MoneHive</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>

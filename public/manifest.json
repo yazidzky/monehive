@@ -1,11 +1,18 @@
 {
-  "name": "MoneHive",
+  "name": "MoneHive - Personal Finance Manager",
   "short_name": "MoneHive",
-  "start_url": "/login",
+  "description": "Aplikasi manajemen keuangan personal untuk melacak transaksi, mengelola dompet, dan mengatur budget",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "theme_color": "#4f46e5",
   "background_color": "#ffffff",
-  "orientation": "portrait-primary",
+  "orientation": "any",
+  "categories": [
+    "finance",
+    "productivity",
+    "utilities"
+  ],
   "icons": [
     {
       "src": "/images/ic_monehive2.png",
@@ -18,6 +25,32 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "Lihat ringkasan keuangan",
+      "url": "/dashboard",
+      "icons": [
+        {
+          "src": "/images/ic_monehive2.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Add Transaction",
+      "short_name": "Transaksi",
+      "description": "Tambah transaksi baru",
+      "url": "/transactions/create",
+      "icons": [
+        {
+          "src": "/images/ic_monehive2.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }

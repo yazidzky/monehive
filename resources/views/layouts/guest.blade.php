@@ -18,7 +18,7 @@ Ciri khas: Tampilan sederhana, terpusat di tengah layar.
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="MoneHive">
-    <link rel="apple-touch-icon" href="{{ asset('images/ic_monehive2.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/icon-192x192.png') }}">
     <link rel="manifest" href="{{ asset('manifest.json') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -43,28 +43,29 @@ Ciri khas: Tampilan sederhana, terpusat di tengah layar.
             transition: all 0.3s ease;
             animation: slideIn 0.5s ease-out;
         }
-        
+
         #installButton:hover {
             background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
             transform: translateY(-2px);
             box-shadow: 0 12px 24px rgba(79, 70, 229, 0.4);
         }
-        
+
         #installButton:active {
             transform: translateY(0);
         }
-        
+
         @keyframes slideIn {
             from {
                 transform: translateX(400px);
                 opacity: 0;
             }
+
             to {
                 transform: translateX(0);
                 opacity: 1;
             }
         }
-        
+
         /* Icon styling inside button */
         #installButton svg {
             display: inline-block;
@@ -86,14 +87,14 @@ Ciri khas: Tampilan sederhana, terpusat di tengah layar.
                     });
             });
         }
-        
+
         // PWA Install Prompt
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', (e) => {
             console.log('beforeinstallprompt event triggered');
             e.preventDefault();
             deferredPrompt = e;
-            
+
             // Show install button
             const installButton = document.getElementById('installButton');
             if (installButton) {
@@ -101,13 +102,13 @@ Ciri khas: Tampilan sederhana, terpusat di tengah layar.
                 console.log('Install button shown');
             }
         });
-        
+
         function installPWA() {
             const installButton = document.getElementById('installButton');
             if (installButton) {
                 installButton.style.display = 'none';
             }
-            
+
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
@@ -120,7 +121,7 @@ Ciri khas: Tampilan sederhana, terpusat di tengah layar.
                 });
             }
         }
-        
+
         // Check if already installed
         window.addEventListener('appinstalled', () => {
             console.log('PWA was installed');
